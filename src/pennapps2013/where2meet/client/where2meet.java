@@ -47,15 +47,15 @@ public class where2meet implements EntryPoint {
         RootPanel rootPanel = RootPanel.get();
 
         mainPanel = new VerticalPanel();
-        // mainPanel.setStylePrimaryName("gwt-Panel-main");
-        // mainPanel.setStyleName("body");
+        mainPanel.setStylePrimaryName("gwt-Panel-main");
+        mainPanel.setStyleName("body");
         rootPanel.add(mainPanel, 10, 10);
         mainPanel.setSize("250px", "200px");
 
-        where2meetLabel = new Label("where2meet");
+        // where2meetLabel = new Label("where2meet");
         // where2meetLabel.setStylePrimaryName("gwt-Label-where2meet");
         // where2meetLabel.setStyleName("gwt-Label-where2meet");
-        mainPanel.add(where2meetLabel);
+        // mainPanel.add(where2meetLabel);
 
         addressFlexTable = new FlexTable();
         addressFlexTable.setText(0, 0, "Address");
@@ -66,6 +66,8 @@ public class where2meet implements EntryPoint {
         // addressFlexTable.getRowFormatter().addStyleName(0, "addressListHeader");
         // addressFlexTable.addStyleName("addressList");
         // addressFlexTable.getCellFormatter().addStyleName(0, 1, "addressListRemoveColumn");
+        addressFlexTable.setStyleName("table");
+        addressFlexTable.setStylePrimaryName("table");
 
         mainPanel.add(addressFlexTable);
         mainPanel.setCellHorizontalAlignment(addressFlexTable, HasHorizontalAlignment.ALIGN_CENTER);
