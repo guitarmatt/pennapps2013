@@ -102,8 +102,8 @@ public class where2meet implements EntryPoint {
             public void onClick(ClickEvent event) {
             }
         });
-        // locateButton.setStylePrimaryName("gwt-Button-Locate");
-        // locateButton.setStyleName("gwt-Button-Locate");
+        locateButton.setStylePrimaryName("btn");
+        locateButton.setStyleName("btn");
         locateButton.setText("Locate!");
         mainPanel.add(locateButton);
         mainPanel.setCellHorizontalAlignment(locateButton, HasHorizontalAlignment.ALIGN_CENTER);
