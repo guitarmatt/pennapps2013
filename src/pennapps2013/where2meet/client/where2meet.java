@@ -86,8 +86,8 @@ public class where2meet implements EntryPoint {
         addPanel.add(newAddressTextBox);
 
         addButton = new Button("New button");
-        // addButton.setStylePrimaryName("gwt-Button-Add");
-        // addButton.setStyleName("gwt-Button-Add");
+        addButton.setStylePrimaryName("btn");
+        addButton.setStyleName("btn");
         addButton.addClickHandler(new ClickHandler() {
             public void onClick(ClickEvent event) {
                 addAddress();
@@ -102,8 +102,8 @@ public class where2meet implements EntryPoint {
             public void onClick(ClickEvent event) {
             }
         });
-        // locateButton.setStylePrimaryName("gwt-Button-Locate");
-        // locateButton.setStyleName("gwt-Button-Locate");
+        locateButton.setStylePrimaryName("btn");
+        locateButton.setStyleName("btn");
         locateButton.setText("Locate!");
         mainPanel.add(locateButton);
         mainPanel.setCellHorizontalAlignment(locateButton, HasHorizontalAlignment.ALIGN_CENTER);
