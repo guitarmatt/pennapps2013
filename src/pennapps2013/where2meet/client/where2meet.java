@@ -62,6 +62,9 @@ public class where2meet implements EntryPoint {
 		Response response = request.send();
 		try {
 			JSONObject json = (JSONObject)(new JSONParser()).parse(response.getBody());
+			if (!"OK".equals(json.get("status")))
+				return null;
+			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
