@@ -1,3 +1,5 @@
+package pennapps2013.where2meet.client;
+
 import org.json.simple.JSONObject;
 
 public class SearchException extends Exception {

@@ -1,3 +1,5 @@
+package pennapps2013.where2meet.client;
+
 import org.scribe.builder.api.DefaultApi10a;
 import org.scribe.model.Token;
 

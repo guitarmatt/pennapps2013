@@ -100,6 +100,16 @@ public class where2meet implements EntryPoint {
 		locateButton = new Button("New button");
 		locateButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
+				//TODO convert addresses into geo cords
+				//TODO call nicks functions which should hopefully trigger map, etc.
+				int rowcount = addressFlexTable.getRowCount();
+				LatLng[] coords = new LatLng[rowcount-1];
+				for (int row = 1; row<rowcount; row++){
+					//GET GEO Coords from google and parse to get lat and long
+					LatLng templatlng = new LatLng(1,1);
+					coords[row-1] = templatlng;
+				}
+				//Call nicks coords to businesses function
 			}
 		});
 		locateButton.setStylePrimaryName("gwt-Button-Locate");

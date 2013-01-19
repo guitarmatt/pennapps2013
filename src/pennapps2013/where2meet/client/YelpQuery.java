@@ -1,3 +1,5 @@
+package pennapps2013.where2meet.client;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
