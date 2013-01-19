@@ -35,112 +35,112 @@ import com.google.gwt.user.client.ui.HasHorizontalAlignment;
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class where2meet implements EntryPoint {
-	private VerticalPanel mainPanel;
-	private FlexTable addressFlexTable;
-	private HorizontalPanel addPanel;
-	private TextBox newAddressTextBox;
-	private Button addButton;
-	private ArrayList <String> addresses = new ArrayList<String>();
-	private Label where2meetLabel;
-	private Button locateButton;
-	public void onModuleLoad() {
-		RootPanel rootPanel = RootPanel.get();
-		
-		mainPanel = new VerticalPanel();
-		mainPanel.setStylePrimaryName("gwt-Panel-main");
-		mainPanel.setStyleName("body");
-		rootPanel.add(mainPanel, 10, 10);
-		mainPanel.setSize("250px", "200px");
-		
-		where2meetLabel = new Label("where2meet");
-		where2meetLabel.setStylePrimaryName("gwt-Label-where2meet");
-		where2meetLabel.setStyleName("gwt-Label-where2meet");
-		mainPanel.add(where2meetLabel);
-		
-		addressFlexTable = new FlexTable();
-		addressFlexTable.setText(0, 0, "Address");
-		addressFlexTable.setText(0, 1, "Remove");
-		
-	    // Add styles to elements in the address list table.
-	    addressFlexTable.setCellPadding(6);
-	    addressFlexTable.getRowFormatter().addStyleName(0, "addressListHeader");
-	    addressFlexTable.addStyleName("addressList");
-	    addressFlexTable.getCellFormatter().addStyleName(0, 1, "addressListRemoveColumn");
-		
-		mainPanel.add(addressFlexTable);
-		mainPanel.setCellHorizontalAlignment(addressFlexTable, HasHorizontalAlignment.ALIGN_CENTER);
-		
-		addPanel = new HorizontalPanel();
-		mainPanel.add(addPanel);
-		mainPanel.setCellHorizontalAlignment(addPanel, HasHorizontalAlignment.ALIGN_CENTER);
-		
-		newAddressTextBox = new TextBox();
-		newAddressTextBox.addKeyPressHandler(new KeyPressHandler() {
-			public void onKeyPress(KeyPressEvent event) {
-				if (event.getCharCode() == KeyCodes.KEY_ENTER){
-					addAddress();
-				}
-			}
-		});
-		newAddressTextBox.setFocus(true);
-		addPanel.add(newAddressTextBox);
-		
-		addButton = new Button("New button");
-		addButton.setStylePrimaryName("gwt-Button-Add");
-		addButton.setStyleName("gwt-Button-Add");
-		addButton.addClickHandler(new ClickHandler() {
-			public void onClick(ClickEvent event) {
-				addAddress();
-			}
-		});
-		addButton.setText("Add");
-		addPanel.add(addButton);
-		addPanel.addStyleName("addPanel");
-		
-		locateButton = new Button("New button");
-		locateButton.addClickHandler(new ClickHandler() {
-			public void onClick(ClickEvent event) {
-			}
-		});
-		locateButton.setStylePrimaryName("gwt-Button-Locate");
-		locateButton.setStyleName("gwt-Button-Locate");
-		locateButton.setText("Locate!");
-		mainPanel.add(locateButton);
-		mainPanel.setCellHorizontalAlignment(locateButton, HasHorizontalAlignment.ALIGN_CENTER);
-	}
-	private void addAddress() {
-		final String address = newAddressTextBox.getText().trim();
-	    newAddressTextBox.setFocus(true);
+    private VerticalPanel mainPanel;
+    private FlexTable addressFlexTable;
+    private HorizontalPanel addPanel;
+    private TextBox newAddressTextBox;
+    private Button addButton;
+    private ArrayList <String> addresses = new ArrayList<String>();
+    private Label where2meetLabel;
+    private Button locateButton;
+    public void onModuleLoad() {
+        RootPanel rootPanel = RootPanel.get();
 
-	    // Address must be between 1 and 10 chars that are numbers, letters, or dots.
-	    if (!address.matches("^[0-9a-zA-Z ]{1,100}$")) {
-	      Window.alert("'" + address + "' is not a valid address.");
-	      newAddressTextBox.selectAll();
-	      return;
-	    }
+        mainPanel = new VerticalPanel();
+        // mainPanel.setStylePrimaryName("gwt-Panel-main");
+        // mainPanel.setStyleName("body");
+        rootPanel.add(mainPanel, 10, 10);
+        mainPanel.setSize("250px", "200px");
 
-	    newAddressTextBox.setText("");
+        where2meetLabel = new Label("where2meet");
+        // where2meetLabel.setStylePrimaryName("gwt-Label-where2meet");
+        // where2meetLabel.setStyleName("gwt-Label-where2meet");
+        mainPanel.add(where2meetLabel);
 
-	    // Don't add the address if it's already in the table.
-	    if (addresses.contains(address))
-	        return;
-	    
-	    // Add the address to the table.
-	    int row = addressFlexTable.getRowCount();
-	    addresses.add(address);
-	    addressFlexTable.setText(row, 0, address);
-	    addressFlexTable.getCellFormatter().addStyleName(row, 1, "addressListRemoveColumn");
-	    
-	    // Add a button to remove this address from the table.
-	    Button removeAddress = new Button("x");
-	    removeAddress.addStyleDependentName("remove");
-	    removeAddress.addClickHandler(new ClickHandler() {
-	    public void onClick(ClickEvent event) {					
-	        int removedIndex = addresses.indexOf(address);
-	        addresses.remove(removedIndex);
-	        addressFlexTable.removeRow(removedIndex + 1);
-	    }
-	    });
-	    addressFlexTable.setWidget(row, 1, removeAddress);   
-	}
+        addressFlexTable = new FlexTable();
+        addressFlexTable.setText(0, 0, "Address");
+        addressFlexTable.setText(0, 1, "Remove");
+
+        // // Add styles to elements in the address list table.
+        // addressFlexTable.setCellPadding(6);
+        // addressFlexTable.getRowFormatter().addStyleName(0, "addressListHeader");
+        // addressFlexTable.addStyleName("addressList");
+        // addressFlexTable.getCellFormatter().addStyleName(0, 1, "addressListRemoveColumn");
+
+        mainPanel.add(addressFlexTable);
+        mainPanel.setCellHorizontalAlignment(addressFlexTable, HasHorizontalAlignment.ALIGN_CENTER);
+
+        addPanel = new HorizontalPanel();
+        mainPanel.add(addPanel);
+        mainPanel.setCellHorizontalAlignment(addPanel, HasHorizontalAlignment.ALIGN_CENTER);
+
+        newAddressTextBox = new TextBox();
+        newAddressTextBox.addKeyPressHandler(new KeyPressHandler() {
+            public void onKeyPress(KeyPressEvent event) {
+                if (event.getCharCode() == KeyCodes.KEY_ENTER){
+                    addAddress();
+                }
+            }
+        });
+        newAddressTextBox.setFocus(true);
+        addPanel.add(newAddressTextBox);
+
+        addButton = new Button("New button");
+        // addButton.setStylePrimaryName("gwt-Button-Add");
+        // addButton.setStyleName("gwt-Button-Add");
+        addButton.addClickHandler(new ClickHandler() {
+            public void onClick(ClickEvent event) {
+                addAddress();
+            }
+        });
+        addButton.setText("Add");
+        addPanel.add(addButton);
+        // addPanel.addStyleName("addPanel");
+
+        locateButton = new Button("New button");
+        locateButton.addClickHandler(new ClickHandler() {
+            public void onClick(ClickEvent event) {
+            }
+        });
+        // locateButton.setStylePrimaryName("gwt-Button-Locate");
+        // locateButton.setStyleName("gwt-Button-Locate");
+        locateButton.setText("Locate!");
+        mainPanel.add(locateButton);
+        mainPanel.setCellHorizontalAlignment(locateButton, HasHorizontalAlignment.ALIGN_CENTER);
+    }
+    private void addAddress() {
+        final String address = newAddressTextBox.getText().trim();
+        newAddressTextBox.setFocus(true);
+
+        // Address must be between 1 and 10 chars that are numbers, letters, or dots.
+        if (!address.matches("^[0-9a-zA-Z ]{1,100}$")) {
+          Window.alert("'" + address + "' is not a valid address.");
+          newAddressTextBox.selectAll();
+          return;
+        }
+
+        newAddressTextBox.setText("");
+
+        // Don't add the address if it's already in the table.
+        if (addresses.contains(address))
+            return;
+
+        // Add the address to the table.
+        int row = addressFlexTable.getRowCount();
+        addresses.add(address);
+        addressFlexTable.setText(row, 0, address);
+        //addressFlexTable.getCellFormatter().addStyleName(row, 1, "addressListRemoveColumn");
+
+        // Add a button to remove this address from the table.
+        Button removeAddress = new Button("x");
+        //removeAddress.addStyleDependentName("remove");
+        removeAddress.addClickHandler(new ClickHandler() {
+        public void onClick(ClickEvent event) {
+            int removedIndex = addresses.indexOf(address);
+            addresses.remove(removedIndex);
+            addressFlexTable.removeRow(removedIndex + 1);
+        }
+        });
+        addressFlexTable.setWidget(row, 1, removeAddress);
+    }
 }
