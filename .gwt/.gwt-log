@@ -116,3 +116,180 @@ Rebinding com.google.gwt.i18n.client.impl.LocaleInfoImpl
       Compiling...
          Compilation completed in 0.02 seconds
       Removing invalidated units
+Public resources found in...
+Translatable source found in...
+Found 0 cached/archived units.  Used 0 / 2718 units from cache.
+Compiling...
+   20% complete (ETR: 17 seconds)
+   20% complete (ETR: 17 seconds)
+   20% complete (ETR: 17 seconds)
+   30% complete (ETR: 15 seconds)
+   40% complete (ETR: 11 seconds)
+   50% complete (ETR: 8 seconds)
+   60% complete (ETR: 6 seconds)
+   70% complete (ETR: 4 seconds)
+   80% complete (ETR: 3 seconds)
+   90% complete (ETR: 1 seconds)
+   100% complete (ETR: 0 seconds)
+   Compilation completed in 15.01 seconds
+Removing invalidated units
+Finding entry point classes
+Public resources found in...
+Translatable source found in...
+Found 2718 cached/archived units.  Used 2718 / 2718 units from cache.
+Compiling...
+   Compilation completed in 0.00 seconds
+Removing invalidated units
+Finding entry point classes
+Public resources found in...
+Translatable source found in...
+Found 2718 cached/archived units.  Used 2718 / 2718 units from cache.
+Compiling...
+   Compilation completed in 0.00 seconds
+Removing invalidated units
+Finding entry point classes
+Public resources found in...
+Translatable source found in...
+Found 0 cached/archived units.  Used 0 / 2718 units from cache.
+Compiling...
+   20% complete (ETR: 15 seconds)
+   20% complete (ETR: 15 seconds)
+   20% complete (ETR: 15 seconds)
+   30% complete (ETR: 13 seconds)
+   40% complete (ETR: 10 seconds)
+   50% complete (ETR: 8 seconds)
+   60% complete (ETR: 6 seconds)
+   70% complete (ETR: 4 seconds)
+   80% complete (ETR: 3 seconds)
+   90% complete (ETR: 1 seconds)
+   100% complete (ETR: 0 seconds)
+   Compilation completed in 14.32 seconds
+Removing invalidated units
+Finding entry point classes
+Public resources found in...
+Translatable source found in...
+Found 2718 cached/archived units.  Used 2718 / 2718 units from cache.
+Compiling...
+   Compilation completed in 0.00 seconds
+Removing invalidated units
+Finding entry point classes
+Public resources found in...
+Translatable source found in...
+Found 2718 cached/archived units.  Used 2718 / 2718 units from cache.
+Compiling...
+   Compilation completed in 0.00 seconds
+Removing invalidated units
+Finding entry point classes
+Public resources found in...
+Translatable source found in...
+Found 0 cached/archived units.  Used 0 / 2718 units from cache.
+Compiling...
+   10% complete (ETR: 34 seconds)
+   10% complete (ETR: 34 seconds)
+   20% complete (ETR: 27 seconds)
+   30% complete (ETR: 21 seconds)
+   40% complete (ETR: 15 seconds)
+   50% complete (ETR: 12 seconds)
+   60% complete (ETR: 8 seconds)
+   70% complete (ETR: 5 seconds)
+   80% complete (ETR: 3 seconds)
+   90% complete (ETR: 2 seconds)
+   100% complete (ETR: 0 seconds)
+   Compilation completed in 17.78 seconds
+Removing invalidated units
+Finding entry point classes
+Public resources found in...
+Translatable source found in...
+Found 2718 cached/archived units.  Used 2718 / 2718 units from cache.
+Compiling...
+   Compilation completed in 0.00 seconds
+Removing invalidated units
+Finding entry point classes
+Public resources found in...
+Translatable source found in...
+Found 2718 cached/archived units.  Used 2718 / 2718 units from cache.
+Compiling...
+   Compilation completed in 0.00 seconds
+Removing invalidated units
+Finding entry point classes
+Public resources found in...
+Translatable source found in...
+Found 2718 cached/archived units.  Used 2718 / 2724 units from cache.
+Compiling...
+   Compilation completed in 0.12 seconds
+Validating units:
+   [ERROR] Errors in 'file:/home/matt/pennapps2013/src/pennapps2013/where2meet/client/Circle.java'
+      [ERROR] Line 1: The declared package "" does not match the expected package "pennapps2013.where2meet.client"
+   [ERROR] Errors in 'file:/home/matt/pennapps2013/src/pennapps2013/where2meet/client/Euclidean.java'
+      [ERROR] Line 1: The declared package "" does not match the expected package "pennapps2013.where2meet.client"
+   [ERROR] Errors in 'file:/home/matt/pennapps2013/src/pennapps2013/where2meet/client/LatLng.java'
+      [ERROR] Line 1: The declared package "" does not match the expected package "pennapps2013.where2meet.client"
+      [ERROR] Line 1: The import org.jfree cannot be resolved
+      [ERROR] Line 14: XYSeries cannot be resolved to a type
+   [ERROR] Errors in 'file:/home/matt/pennapps2013/src/pennapps2013/where2meet/client/Plotter.java'
+      [ERROR] Line 1: The declared package "" does not match the expected package "pennapps2013.where2meet.client"
+      [ERROR] Line 9: The import org.jfree cannot be resolved
+      [ERROR] Line 10: The import org.jfree cannot be resolved
+      [ERROR] Line 11: The import org.jfree cannot be resolved
+      [ERROR] Line 12: The import org.jfree cannot be resolved
+      [ERROR] Line 13: The import org.jfree cannot be resolved
+      [ERROR] Line 14: The import org.jfree cannot be resolved
+      [ERROR] Line 15: The import org.jfree cannot be resolved
+      [ERROR] Line 16: The import org.jfree cannot be resolved
+      [ERROR] Line 17: The import org.jfree cannot be resolved
+      [ERROR] Line 38: XYSeries cannot be resolved to a type
+      [ERROR] Line 38: XYSeries cannot be resolved to a type
+      [ERROR] Line 41: XYSeries cannot be resolved to a type
+      [ERROR] Line 41: XYSeries cannot be resolved to a type
+      [ERROR] Line 45: XYSeriesCollection cannot be resolved to a type
+      [ERROR] Line 45: XYSeriesCollection cannot be resolved to a type
+      [ERROR] Line 49: XYDotRenderer cannot be resolved to a type
+      [ERROR] Line 49: XYDotRenderer cannot be resolved to a type
+      [ERROR] Line 52: XYPlot cannot be resolved to a type
+      [ERROR] Line 52: XYPlot cannot be resolved to a type
+      [ERROR] Line 52: NumberAxis cannot be resolved to a type
+      [ERROR] Line 52: NumberAxis cannot be resolved to a type
+      [ERROR] Line 53: XYShapeAnnotation cannot be resolved to a type
+      [ERROR] Line 53: XYShapeAnnotation cannot be resolved to a type
+      [ERROR] Line 61: NumberAxis cannot be resolved to a type
+      [ERROR] Line 61: NumberAxis cannot be resolved to a type
+      [ERROR] Line 62: NumberAxis cannot be resolved to a type
+      [ERROR] Line 62: NumberAxis cannot be resolved to a type
+      [ERROR] Line 64: NumberTickUnit cannot be resolved to a type
+      [ERROR] Line 66: NumberTickUnit cannot be resolved to a type
+      [ERROR] Line 68: JFreeChart cannot be resolved to a type
+      [ERROR] Line 68: JFreeChart cannot be resolved to a type
+      [ERROR] Line 69: ChartPanel cannot be resolved to a type
+      [ERROR] Line 69: ChartPanel cannot be resolved to a type
+   [ERROR] Errors in 'file:/home/matt/pennapps2013/src/pennapps2013/where2meet/client/SEC.java'
+      [ERROR] Line 1: The declared package "" does not match the expected package "pennapps2013.where2meet.client"
+      [ERROR] Line 62: The method copyOf(LatLng[], int) is undefined for the type Arrays
+      [ERROR] Line 72: The method shuffle(List<LatLng>) is undefined for the type Collections
+Removing invalidated units
+Finding entry point classes
+Rebinding com.google.gwt.i18n.client.impl.LocaleInfoImpl
+   Invoking generator com.google.gwt.i18n.rebind.LocaleInfoGenerator
+      Processing interface com.google.gwt.i18n.client.constants.NumberConstantsImpl
+         Generating method body for notANumber()
+         Generating method body for currencyPattern()
+         Generating method body for decimalPattern()
+         Generating method body for decimalSeparator()
+         Generating method body for defCurrencyCode()
+         Generating method body for exponentialSymbol()
+         Generating method body for globalCurrencyPattern()
+         Generating method body for groupingSeparator()
+         Generating method body for infinity()
+         Generating method body for minusSign()
+         Generating method body for monetaryGroupingSeparator()
+         Generating method body for monetarySeparator()
+         Generating method body for percent()
+         Generating method body for percentPattern()
+         Generating method body for perMill()
+         Generating method body for plusSign()
+         Generating method body for scientificPattern()
+         Generating method body for simpleCurrencyPattern()
+         Generating method body for zeroDigit()
+   Adding '3' new generated units
+      Compiling...
+         Compilation completed in 0.01 seconds
+      Removing invalidated units

@@ -29,6 +29,7 @@ import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.event.dom.client.KeyPressEvent;
 import java.util.ArrayList;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -41,6 +42,7 @@ public class where2meet implements EntryPoint {
 	private Button addButton;
 	private ArrayList <String> addresses = new ArrayList<String>();
 	private Label where2meetLabel;
+	private Button locateButton;
 	public void onModuleLoad() {
 		RootPanel rootPanel = RootPanel.get();
 		
@@ -48,7 +50,7 @@ public class where2meet implements EntryPoint {
 		mainPanel.setStylePrimaryName("gwt-Panel-main");
 		mainPanel.setStyleName("body");
 		rootPanel.add(mainPanel, 10, 10);
-		mainPanel.setSize("250px", "150px");
+		mainPanel.setSize("250px", "200px");
 		
 		where2meetLabel = new Label("where2meet");
 		where2meetLabel.setStylePrimaryName("gwt-Label-where2meet");
@@ -66,9 +68,11 @@ public class where2meet implements EntryPoint {
 	    addressFlexTable.getCellFormatter().addStyleName(0, 1, "addressListRemoveColumn");
 		
 		mainPanel.add(addressFlexTable);
+		mainPanel.setCellHorizontalAlignment(addressFlexTable, HasHorizontalAlignment.ALIGN_CENTER);
 		
 		addPanel = new HorizontalPanel();
 		mainPanel.add(addPanel);
+		mainPanel.setCellHorizontalAlignment(addPanel, HasHorizontalAlignment.ALIGN_CENTER);
 		
 		newAddressTextBox = new TextBox();
 		newAddressTextBox.addKeyPressHandler(new KeyPressHandler() {
@@ -82,6 +86,7 @@ public class where2meet implements EntryPoint {
 		addPanel.add(newAddressTextBox);
 		
 		addButton = new Button("New button");
+		addButton.setStylePrimaryName("gwt-Button-Add");
 		addButton.setStyleName("gwt-Button-Add");
 		addButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
@@ -91,6 +96,17 @@ public class where2meet implements EntryPoint {
 		addButton.setText("Add");
 		addPanel.add(addButton);
 		addPanel.addStyleName("addPanel");
+		
+		locateButton = new Button("New button");
+		locateButton.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+			}
+		});
+		locateButton.setStylePrimaryName("gwt-Button-Locate");
+		locateButton.setStyleName("gwt-Button-Locate");
+		locateButton.setText("Locate!");
+		mainPanel.add(locateButton);
+		mainPanel.setCellHorizontalAlignment(locateButton, HasHorizontalAlignment.ALIGN_CENTER);
 	}
 	private void addAddress() {
 		final String address = newAddressTextBox.getText().trim();

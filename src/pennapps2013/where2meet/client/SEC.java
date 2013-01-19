@@ -1,3 +1,5 @@
+package pennapps2013.where2meet.client;
+
 import java.util.Arrays;
 import java.util.Collections;
 

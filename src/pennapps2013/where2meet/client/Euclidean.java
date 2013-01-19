@@ -1,3 +1,5 @@
+package pennapps2013.where2meet.client;
+
 
 public final class Euclidean {
 

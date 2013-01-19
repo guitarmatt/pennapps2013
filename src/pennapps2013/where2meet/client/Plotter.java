@@ -1,3 +1,5 @@
+package pennapps2013.where2meet.client;
+
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -16,7 +18,10 @@ import org.jfree.chart.renderer.xy.XYDotRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-public class Plotter extends JPanel {
+public class Plotter {
+}
+
+/*public class Plotter extends JPanel {
 	private static final long serialVersionUID = -1928984286891999727L;
 
 	public Plotter() {
@@ -80,4 +85,4 @@ public class Plotter extends JPanel {
 		frame.pack();
 		frame.setVisible(true);
 	}
-}
+}*/

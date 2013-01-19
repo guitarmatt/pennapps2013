@@ -321,7 +321,7 @@ a:visited {
 	cursor: hand;
 }
 .gwt-Label-where2meet {
-	font-size: 24px;
+	font-size: 40px;
 	font-weight: bold;
 }
 .gwt-Button-Add {
@@ -331,4 +331,9 @@ a:visited {
 }
 .gwt-Panel-main {
 	border: 1px outset #CCCCCC;
+}
+.gwt-Button-Locate {
+	color: White;
+	font-size: 20px;
+	background-color: #2062B8;
 }
