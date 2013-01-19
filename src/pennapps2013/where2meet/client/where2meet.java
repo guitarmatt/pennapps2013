@@ -86,8 +86,8 @@ public class where2meet implements EntryPoint {
         addPanel.add(newAddressTextBox);
 
         addButton = new Button("New button");
-        // addButton.setStylePrimaryName("gwt-Button-Add");
-        // addButton.setStyleName("gwt-Button-Add");
+        addButton.setStylePrimaryName("btn");
+        addButton.setStyleName("btn");
         addButton.addClickHandler(new ClickHandler() {
             public void onClick(ClickEvent event) {
                 addAddress();
