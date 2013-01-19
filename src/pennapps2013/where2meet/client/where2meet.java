@@ -28,6 +28,14 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.event.dom.client.KeyPressEvent;
 import java.util.ArrayList;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.scribe.model.Request;
+import org.scribe.model.Response;
+import org.scribe.model.Verb;
+
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 
@@ -35,6 +43,9 @@ import com.google.gwt.user.client.ui.HasHorizontalAlignment;
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class where2meet implements EntryPoint {
+	
+	public static final String GEOCODE = "http://maps.googleapis.com/maps/api/geocode/json";
+	
     private VerticalPanel mainPanel;
     private FlexTable addressFlexTable;
     private HorizontalPanel addPanel;
@@ -43,6 +54,22 @@ public class where2meet implements EntryPoint {
     private ArrayList <String> addresses = new ArrayList<String>();
     private Label where2meetLabel;
     private Button locateButton;
+    
+    public static LatLng geocode(String address) {
+		Request request = new Request(Verb.GET, GEOCODE);
+		request.addQuerystringParameter("address", address.replace(' ', '+'));
+		request.addQuerystringParameter("sensor", "false");
+		Response response = request.send();
+		try {
+			JSONObject json = (JSONObject)(new JSONParser()).parse(response.getBody());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(response.getBody());
+		return null;
+    }
+    
     public void onModuleLoad() {
         RootPanel rootPanel = RootPanel.get();
 
@@ -103,11 +130,13 @@ public class where2meet implements EntryPoint {
 				//TODO convert addresses into geo cords
 				//TODO call nicks functions which should hopefully trigger map, etc.
 				int rowcount = addressFlexTable.getRowCount();
-				LatLng[] coords = new LatLng[rowcount-1];
-				for (int row = 1; row<rowcount; row++){
+				LatLng[] coords = new LatLng[rowcount - 1];
+				for (int row = 1; row < rowcount; row++) {
+					//?address=200+S+33rd+St,+Philadelphia,+PA+19104&sensor=false
 					//GET GEO Coords from google and parse to get lat and long
-					LatLng templatlng = new LatLng(1,1);
-					coords[row-1] = templatlng;
+					String address = addressFlexTable.getText(row, 0);
+					LatLng templatlng = new LatLng(1, 1);
+					coords[row - 1] = templatlng;
 				}
 				//Call nicks coords to businesses function
 			}
@@ -152,5 +181,9 @@ public class where2meet implements EntryPoint {
         }
         });
         addressFlexTable.setWidget(row, 1, removeAddress);
+    }
+    
+    public static void main(String[] args) {
+    	where2meet.geocode("dsafsa");
     }
 }
