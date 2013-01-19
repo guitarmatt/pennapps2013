@@ -73,28 +73,7 @@ public class SEC {
 	public static Circle findCenter(LatLng[] points) {
 		Collections.shuffle(Arrays.asList(points));
 		Circle c = smallestEnclosing(points, 0, new LatLng[0]);
-		// TODO adjust radius
 		return c;
-	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		LatLng[] points = new LatLng[] {
-//				new LatLng(30, 78),
-//				new LatLng(14, 65),
-//				new LatLng(21, 60)
-				new LatLng(30.5483432, 78.3928322),
-				new LatLng(14.4324334, 65.3829849),
-				new LatLng(21.6569860, 60.4383493),
-				new LatLng(23.4, 100.7)
-		};
-	
-		Circle c = findCenter(points);
-		for (LatLng l : points)
-			assert (c.inside(l.lat, l.lng));
-		System.out.println(findCenter(points));
 	}
 
 }

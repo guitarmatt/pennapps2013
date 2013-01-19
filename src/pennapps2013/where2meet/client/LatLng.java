@@ -2,7 +2,6 @@ package pennapps2013.where2meet.client;
 
 import org.jfree.data.xy.XYSeries;
 
-
 public class LatLng {
 
 	double lat;
