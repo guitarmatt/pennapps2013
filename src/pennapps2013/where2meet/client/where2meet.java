@@ -28,6 +28,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.event.dom.client.KeyPressEvent;
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -55,7 +56,8 @@ public class where2meet implements EntryPoint {
     private Label where2meetLabel;
     private Button locateButton;
     
-    public static LatLng geocode(String address) {
+    @SuppressWarnings("unchecked")
+	public static LatLng geocode(String address) {
 		Request request = new Request(Verb.GET, GEOCODE);
 		request.addQuerystringParameter("address", address.replace(' ', '+'));
 		request.addQuerystringParameter("sensor", "false");
@@ -65,12 +67,17 @@ public class where2meet implements EntryPoint {
 			if (!"OK".equals(json.get("status")))
 				return null;
 			
+			ArrayList<Map<String, Object>> results =
+					(ArrayList<Map<String, Object>>) json.get("results");
+			System.out.println(results.size());
+			return null;
+	//		Map<String, Object> geometry = (Map<String, Object>) results.get("geometry");
+	//		Map<String, Object> location = (Map<String, Object>) geometry.get("location");
+	//		return new LatLng((Double)location.get("lat"), (Double)location.get("lng"));
+			
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return null;
 		}
-		System.out.println(response.getBody());
-		return null;
     }
     
     public void onModuleLoad() {
@@ -189,6 +196,6 @@ public class where2meet implements EntryPoint {
     }
     
     public static void main(String[] args) {
-    	where2meet.geocode("dsafsa");
+    	System.out.println(where2meet.geocode("38 Stanwood Rd"));
     }
 }
