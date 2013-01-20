@@ -15,26 +15,30 @@
 
 package pennapps2013.where2meet.client;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
+import com.google.gwt.event.dom.client.KeyPressEvent;
+import com.google.gwt.event.dom.client.KeyPressHandler;
+import com.google.gwt.maps.client.Maps;
+import com.google.gwt.maps.client.geocode.Geocoder;
+import com.google.gwt.maps.client.geocode.LatLngCallback;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.FlexTable;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.event.dom.client.KeyPressHandler;
-import com.google.gwt.event.dom.client.KeyPressEvent;
-import java.util.ArrayList;
-import java.util.Map;
-
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -50,19 +54,66 @@ public class Where2Meet implements EntryPoint {
     private Label where2meetLabel;
     private Button locateButton;
     
-    public void doShit() {
+    private Geocoder geocoder;
+    
+    class GeoRunner implements LatLngCallback {
+    	
+    	private LatLng[] points;
+    	private int i;
+    	
+    	public GeoRunner(int numpoints) {
+    		this.points = new LatLng[numpoints];
+    		this.i = 0;
+    	}
+    	
+    	public void run() {
+    		if (i < points.length)
+    			geocoder.getLatLng(addressFlexTable.getText(i + 1, 0), this);
+    		else {
+    			// points is now full
+    			for (int j = 0; j < points.length; j++)
+    				System.out.println(points[j]);
+    			//searchPlaces(SEC.findCenter(points));
+    		}
+    	}
+
+		@Override
+		public void onFailure() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onSuccess(com.google.gwt.maps.client.geom.LatLng point) {
+			points[i++] = new LatLng(point.getLatitude(), point.getLongitude());
+			run();
+		}
+    	
+    }
+    
+    public void searchPlaces(Circle circle) {
     	YelpServiceAsync s = GWT.create(YelpService.class);
     	AsyncCallback<ArrayList<Business>> cb = new AsyncCallback<ArrayList<Business>>() {
     		public void onFailure(Throwable caught) {
     			System.out.println(caught.toString());
+    			if (caught instanceof SearchException) {
+    				
+    			}
     		}
     		
     		public void onSuccess(ArrayList<Business> result) {
     			System.out.println("success");
+    			System.out.println(result.toString());
     		}
 		};
 		
-		s.getPlaces(null, 0, cb);
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("term", "five guys");
+		params.put("limit", "10");
+		params.put("ll", 39.951791 + "," + -75.190211);
+		params.put("radius_filter", Integer.toString(15000));
+		
+		s.getPlaces(params, cb);
     }
     
     public void onModuleLoad() {
@@ -120,30 +171,36 @@ public class Where2Meet implements EntryPoint {
         addButton.setText("Add");
         addPanel.add(addButton);
         // addPanel.addStyleName("addPanel");
-
+        
         locateButton = new Button("New button");
         locateButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				doShit();
-				//TODO convert addresses into geo cords
-				//TODO call nicks functions which should hopefully trigger map, etc.
 				int rowcount = addressFlexTable.getRowCount();
-				LatLng[] coords = new LatLng[rowcount - 1];
-				for (int row = 1; row < rowcount; row++) {
-					//?address=200+S+33rd+St,+Philadelphia,+PA+19104&sensor=false
-					//GET GEO Coords from google and parse to get lat and long
-					String address = addressFlexTable.getText(row, 0);
-					LatLng templatlng = new LatLng(1, 1);
-					coords[row - 1] = templatlng;
-				}
-				//Call nicks coords to businesses function
+				GeoRunner g = new GeoRunner(rowcount - 1);
+				g.run();				
 			}
 		});
+        //com.google.gwt.maps.client.geocode.Geocoder a;
+        //a.getLatLng(address, callback);
         locateButton.setStylePrimaryName("btn");
         locateButton.setStyleName("btn");
         locateButton.setText("Locate!");
         mainPanel.add(locateButton);
         mainPanel.setCellHorizontalAlignment(locateButton, HasHorizontalAlignment.ALIGN_CENTER);
+
+        /*
+        Maps.loadMapsApi("AIzaSyDEY3W8pwAUZfWSNEVSTc_RRCU0oGN29gg",
+        		"3", false, new Runnable() {
+					@Override
+					public void run() {
+						System.out.println(Maps.isLoaded());
+						geocoder = new Geocoder();
+					}
+				});
+				
+       	*/
+        System.out.println(Maps.isLoaded());
+        geocoder = new Geocoder();
     }
     private void addAddress() {
         final String address = newAddressTextBox.getText().trim();

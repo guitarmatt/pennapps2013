@@ -1,5 +1,7 @@
 <module>
 	<inherits name="com.google.gwt.user.User"/>
 	<inherits name="com.google.gwt.user.theme.standard.Standard"/>
-	<entry-point class="pennapps2013.where2meet.client.Where2Meet"/>
+	<entry-point class="pennapps2013.where2meet.client.Where2Meet"/><inherits
+		name="com.google.gwt.maps.GoogleMaps">
+</inherits>
 </module>

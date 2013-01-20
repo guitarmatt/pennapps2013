@@ -1,14 +1,19 @@
-package pennapps2013.where2meet.server;
+package pennapps2013.where2meet.client;
 
-import org.json.simple.JSONObject;
+import java.io.Serializable;
 
-public class SearchException extends Exception {
+public class SearchException extends Exception implements Serializable {
 
 	private static final long serialVersionUID = -4243634570719820969L;
 	
-	private JSONObject error;
+	private String error;
 	
-	public SearchException(JSONObject error) {
+	@SuppressWarnings("unused")
+	private SearchException() {
+		error = null;
+	}
+	
+	public SearchException(String error) {
 		super();
 		this.error = error;
 	}
@@ -18,7 +23,7 @@ public class SearchException extends Exception {
 	 * A null object corresponds to a parse error
 	 * @return gets the error
 	 */
-	public JSONObject getError() {
+	public String getError() {
 		return error;
 	}
 	

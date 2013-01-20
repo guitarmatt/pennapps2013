@@ -16,14 +16,11 @@ import org.scribe.model.Verb;
 import org.scribe.oauth.OAuthService;
 
 import pennapps2013.where2meet.client.Business;
+import pennapps2013.where2meet.client.SearchException;
 
 public class YelpQuery {
 
 	public static final String yelp = "http://api.yelp.com/v2/search";
-	private static final String CONSUMER_KEY = "z4KpsjZJuox3LhN3ye2tYA";
-	private static final String CONSUMER_SECRET = "ZcV-nLhQPRt-eGaDZ_2k_wrHOnk";
-	private static final String TOKEN = "FT9J_QwrCGWtAEjoqymjKTbi64JJpRcS";
-	private static final String TOKEN_SECRET = "0OSTGbiyT8axy2b-fbXZcoV-naM";
 
 	private OAuthService service;
 	private Token accessToken;
@@ -47,7 +44,7 @@ public class YelpQuery {
 			ArrayList<Business> businesses = new ArrayList<Business>();
 			JSONObject json = (JSONObject)(new JSONParser()).parse(response.getBody());
 			JSONObject error = (JSONObject) json.get("error");
-			if (error != null) throw new SearchException(error);
+			if (error != null) throw new SearchException(error.toString());
 			ArrayList<Map<String, Object>> places = (ArrayList<Map<String, Object>>) json.get("businesses");
 			for (Map<String, Object> place : places) {
 				Business b = new Business();
@@ -70,6 +67,7 @@ public class YelpQuery {
 		}
 	}
 	
+	/*
 	public static void main(String[] args) throws SearchException {
 		YelpQuery query = new YelpQuery(CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET);
 		HashMap<String, String> params = new HashMap<String, String>();
@@ -81,4 +79,5 @@ public class YelpQuery {
 		if (places == null) return;
 		System.out.println(places);		
 	}
+	*/
 }
